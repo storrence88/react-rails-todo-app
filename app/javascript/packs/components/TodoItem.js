@@ -8,7 +8,7 @@ const TodoItem = (props) => {
     <tr className={`${complete ? 'table-light' : ''}`}>
       <td>
         <svg
-          className={`bi bi-check-circle ${this.state.complete ? `text-success` : `text-muted`}`}
+          className={`bi bi-check-circle ${complete ? `text-success` : `text-muted`}`}
           width='2em'
           height='2em'
           viewBox='0 0 20 20'
