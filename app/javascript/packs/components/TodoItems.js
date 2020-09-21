@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const TodoItems = (props) => {
+  const [todoItems, setTodoItems] = useState({ todoItems: [] });
+
   return (
     <React.Fragment>
       <div className='table-responsive'>
@@ -14,7 +16,7 @@ const TodoItems = (props) => {
               </th>
             </tr>
           </thead>
-          <tbody>{this.props.children}</tbody>
+          <tbody>{props.children}</tbody>
         </table>
       </div>
     </React.Fragment>
