@@ -18,7 +18,6 @@ const TodoApp = () => {
   }, []);
   return (
     <TodoItems>
-      {console.log(todoItems)}
       {todoItems?.todoItems?.map((todoItem) => (
         <TodoItem key={todoItem.id} todoItem={todoItem} />
       ))}
