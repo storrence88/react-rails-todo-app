@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TodoItems = () => {
+const TodoItems = (props) => {
   return (
     <React.Fragment>
       <div className='table-responsive'>
