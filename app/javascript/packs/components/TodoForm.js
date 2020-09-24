@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const TodoForm = (props) => {
   const [data, setData] = useState('');
-  handleChange = (event) => {
+  const handleChange = (event) => {
     setData(event.target.value);
   };
-  handleSubmit = (event) => {
+
+  const handleSubmit = (event) => {
     event.preventDefault();
     axios
       .post('/api/v1/todo_items', {
@@ -16,7 +18,7 @@ const TodoForm = (props) => {
       })
       .then((response) => {
         const todoItem = response.data;
-        this.props.createTodoItem(todoItem);
+        props.createTodoItem(todoItem);
       })
       .catch((error) => {
         console.log(error);
@@ -37,6 +39,9 @@ const TodoForm = (props) => {
             required
             placeholder='Enter To Do Title'
           />
+        </div>
+        <div className='form-group col-md-4'>
+          <button className='btn btn-outline-success btn-block'>Add To Do Item</button>
         </div>
       </div>
     </form>

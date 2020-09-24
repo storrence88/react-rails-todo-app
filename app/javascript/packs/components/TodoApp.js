@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TodoItems from './TodoItems';
 import TodoItem from './TodoItem';
 import axios from 'axios';
+import TodoForm from './TodoForm';
 
 const TodoApp = () => {
   const [todoItems, setTodoItems] = useState({ todoItems: [] });
@@ -16,12 +17,21 @@ const TodoApp = () => {
         console.log(error);
       });
   }, []);
+
+  const createTodoItem = (todoItem) => {
+    const updatedTodoItems = [todoItem, ...todoItems];
+    setTodoItems(updatedTodoItems);
+  };
+
   return (
-    <TodoItems>
-      {todoItems?.todoItems?.map((todoItem) => (
-        <TodoItem key={todoItem.id} todoItem={todoItem} />
-      ))}
-    </TodoItems>
+    <React.Fragment>
+      <TodoForm createTodoItem={createTodoItem} />
+      <TodoItems>
+        {todoItems?.todoItems?.map((todoItem) => (
+          <TodoItem key={todoItem.id} todoItem={todoItem} />
+        ))}
+      </TodoItems>
+    </React.Fragment>
   );
 };
 
