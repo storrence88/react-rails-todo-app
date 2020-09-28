@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AxiosHeaders from './AxiosHeaders';
 import axios from 'axios';
 
 const TodoForm = (props) => {
@@ -9,6 +10,7 @@ const TodoForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    AxiosHeaders();
     axios
       .post('/api/v1/todo_items', {
         todo_item: {
