@@ -10,8 +10,8 @@ const TodoApp = () => {
     axios
       .get('/api/v1/todo_items')
       .then((response) => {
-        const todoItems = response.data;
-        setTodoItems({ todoItems });
+        const getTodoItems = response.data;
+        setTodoItems({ todoItems: getTodoItems });
       })
       .catch((error) => {
         console.log(error);
@@ -19,8 +19,8 @@ const TodoApp = () => {
   }, []);
 
   const createTodoItem = (todoItem) => {
-    const updatedTodoItems = [todoItem, ...todoItems];
-    setTodoItems(updatedTodoItems);
+    todoItems.todoItems.push(todoItem);
+    setTodoItems({ todoItems: todoItems.todoItems });
   };
 
   return (
